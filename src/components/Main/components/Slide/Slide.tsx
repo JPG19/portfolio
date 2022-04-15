@@ -1,17 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { motion } from "framer-motion";
 
+import { UserContext } from "../../../../App";
 import jpDev from "../../../../assets/jpDev.png";
 import Styled from "./Slide.styled";
 
 const Slide = () => {
+  const contextValues = useContext(UserContext);
+
   const variants = {
     hidden: { opacity: 0, y: -50 },
     visible: { opacity: 1, y: 0 },
   };
 
   return (
-    <Styled>
+    <Styled {...contextValues}>
       <motion.div
         className="max-width-container"
         initial="hidden"

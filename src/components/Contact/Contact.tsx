@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 
+import { UserContext } from "../../App";
 import Header from "../Header";
 import Styled from "./Contact.styled";
 
 const Contact: React.FC = () => {
   const [result, setResult] = React.useState<boolean>(false);
+  const contextValues = useContext(UserContext);
 
   const sendEmail = (e: any) => {
     e.preventDefault();
@@ -41,7 +43,7 @@ const Contact: React.FC = () => {
   return (
     <React.Fragment>
       <Header />
-      <Styled>
+      <Styled {...contextValues}>
         <motion.form
           initial="hidden"
           animate="visible"

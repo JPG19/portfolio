@@ -1,18 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faGithubSquare } from "@fortawesome/free-brands-svg-icons";
 
+import { UserContext } from "../../App";
 import Styled from "./Header.styled";
 
 const Header: React.FC = ({}) => {
   const location = useLocation();
+  const contextValues = useContext(UserContext);
 
   return (
-    <Styled>
+    <Styled {...contextValues}>
       <div className="max-width-container">
-        {location.pathname !== '/' ? (
+        {location.pathname !== "/" ? (
           <Link to="/">Home</Link>
         ) : (
           <a href="#works-container">Works</a>
@@ -39,6 +41,15 @@ const Header: React.FC = ({}) => {
         )}
 
         {location.pathname === "/" && <Link to="/contact">Contact</Link>}
+
+        <label className="switch">
+          <input
+            checked={!contextValues.isLightTheme}
+            onChange={() => contextValues.toggleDark()}
+            type="checkbox"
+          />
+          <span className="slider round"></span>
+        </label>
       </div>
     </Styled>
   );

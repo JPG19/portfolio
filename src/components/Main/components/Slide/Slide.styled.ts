@@ -1,6 +1,12 @@
 import styled from "styled-components";
 
-export default styled.div`
+import StyledProps from "../../../types";
+
+export default styled.div<StyledProps>`
+  background-color: ${(props) =>
+    props.isLightTheme
+      ? props.lightBackgroundColor
+      : props.darkBackgroundColor};
   padding: 4rem 0;
   .max-width-container {
     display: grid;
@@ -8,6 +14,8 @@ export default styled.div`
     h1 {
       max-width: 90%;
       margin: auto;
+      color: ${(props) =>
+        props.isLightTheme ? props.lightColor : props.darkColor};
     }
 
     .jp-picture {

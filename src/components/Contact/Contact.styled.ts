@@ -1,26 +1,37 @@
 import styled from "styled-components";
 
-export default styled.div`
+import StyledProps from "../types";
+
+export default styled.div<StyledProps>`
+  min-height: calc(100vh - 90px);
   display: grid;
   justify-content: center;
   align-items: center;
-  color: hsl(0, 0%, 10%);
+  background-color: ${(props) =>
+    props.isLightTheme
+      ? props.lightBackgroundColor
+      : props.darkBackgroundColor};
+  color: ${(props) =>
+    props.isLightTheme ? props.lightColor : props.darkColor};
   form {
     display: grid;
     width: 650px;
     padding: 20px;
 
     label {
-        margin: 0 0 10px 0;
+      margin: 0 0 10px 0;
     }
 
     h2 {
-        text-align: center;
+      text-align: center;
     }
 
     input,
     textarea {
-      background-color: hsl(0, 0%, 85%);
+      background-color: ${(props) =>
+        props.isLightTheme ? "hsl(0, 0%, 85%)" : "hsl(0,0%,45%)"};
+      color: ${(props) =>
+        props.isLightTheme ? props.lightColor : props.darkColor};
       border: none;
       margin: 0 0 20px 0;
     }
@@ -33,7 +44,7 @@ export default styled.div`
     textarea {
       padding: 5px;
     }
-    
+
     input:last-of-type {
       margin: 0;
       height: 50px;
@@ -42,7 +53,6 @@ export default styled.div`
       cursor: pointer;
     }
   }
-
 
   @media screen and (max-width: 750px) {
     form {
@@ -55,5 +65,4 @@ export default styled.div`
       width: 350px;
     }
   }
-
 `;

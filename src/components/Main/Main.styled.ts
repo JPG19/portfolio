@@ -1,8 +1,13 @@
 import styled from "styled-components";
 
-export default styled.div`
+interface Props {
+  isLightTheme: boolean;
+}
+
+export default styled.div<Props>`
   .footer {
     height: 30px;
-    background-color: hsl(227, 82%, 36%);
+    background-color: ${(props) =>
+      props.isLightTheme ? "hsl(227, 82%, 36%)" : "hsl(268, 100%, 10%)"};
   }
 `;

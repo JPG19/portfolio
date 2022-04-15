@@ -1,10 +1,21 @@
 import styled from "styled-components";
 
-export default styled.div`
-  max-width: 1400px;
-  margin: auto;
-  color: hsl(0, 0%, 10%);
-  padding: 3rem 0;
+import StyledProps from "../../../types";
+
+export default styled.div<StyledProps>`
+  background-color: ${(props) =>
+    props.isLightTheme
+      ? props.lightBackgroundColor
+      : props.darkBackgroundColor};
+  color: ${(props) =>
+    props.isLightTheme ? props.lightColor : props.darkColor};
+
+  .motion-work {
+    max-width: 1400px;
+    margin: auto;
+    padding: 3rem 0;
+  }
+
   .title {
     text-align: center;
   }
@@ -26,7 +37,6 @@ export default styled.div`
   @media screen and (max-width: 1420px) {
     width: 90%;
   }
-
 
   @media screen and (max-width: 768px) {
     .certification {

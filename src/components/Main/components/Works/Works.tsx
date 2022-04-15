@@ -1,14 +1,16 @@
-import React from "react";
+import React, { useContext } from "react";
 import { motion } from "framer-motion";
 
 import fccLogo from "../../../../assets/fccLogo.png";
 import salesforceAppBuilder from "../../../../assets/appBuilder.png";
 import loneball from "../../../../assets/loneball5.jpg";
 
+import { UserContext } from "../../../../App";
 import Work from "./Work/Work";
 import Styled from "./Works.styled";
 
 const Works = () => {
+  const contextValues = useContext(UserContext);
   const responsiveDesigns = [
     {
       imageUrl: fccLogo,
@@ -33,8 +35,9 @@ const Works = () => {
   };
 
   return (
-    <Styled id="works-container">
+    <Styled id="works-container" {...contextValues}>
       <motion.div
+        className="motion-work"
         initial="hidden"
         animate="visible"
         variants={variants}

@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 
+import { UserContext } from "../../App";
 import { Slide, About, Works } from "./components";
 import Styled from "./Main.styled";
 
 const Main = () => {
+  const contextValues = useContext(UserContext);
+
   return (
-    <Styled>
+    <Styled isLightTheme={contextValues.isLightTheme}>
       <Slide />
       <About />
       <Works />

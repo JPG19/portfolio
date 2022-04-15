@@ -4,8 +4,6 @@ html {
 
 body {
   margin: 0;
-  background-color: hsl(0, 0%, 95%);
-  color: hsl(0, 0%, 10%);
   font-size: 1rem;
   font-family: "Open Sans", sans-serif;
   line-height: 1.5;

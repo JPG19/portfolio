@@ -1,14 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 
+import { UserContext } from "../../../../App";
 import Styled from "./About.styled";
 
 const About = () => {
+  const contextValues = useContext(UserContext);
   const languages = ["HTML, CSS, Javascript", "React", "TypeScript", "JQuery"];
-
   const devTools = ["GitHub", "Terminal", "Bitbucket", "NPM"];
 
   return (
-    <Styled>
+    <Styled {...contextValues}>
       <div className="max-width-container">
         <div className="name">Hi, i'm Juan Pablo</div>
 
