@@ -8,11 +8,11 @@ export default styled.div<StyledProps>`
   justify-content: center;
   align-items: center;
   background-color: ${(props) =>
-    props.isLightTheme
+    props.theme === "light"
       ? props.lightBackgroundColor
       : props.darkBackgroundColor};
   color: ${(props) =>
-    props.isLightTheme ? props.lightColor : props.darkColor};
+    props.theme === "light" ? props.lightColor : props.darkColor};
   form {
     display: grid;
     width: 650px;
@@ -29,9 +29,9 @@ export default styled.div<StyledProps>`
     input,
     textarea {
       background-color: ${(props) =>
-        props.isLightTheme ? "hsl(0, 0%, 85%)" : "hsl(0,0%,45%)"};
+        props.theme === "light" ? "hsl(0, 0%, 85%)" : "hsl(0,0%,45%)"};
       color: ${(props) =>
-        props.isLightTheme ? props.lightColor : props.darkColor};
+        props.theme === "light" ? props.lightColor : props.darkColor};
       border: none;
       margin: 0 0 20px 0;
     }

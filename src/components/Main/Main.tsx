@@ -8,7 +8,7 @@ const Main = () => {
   const contextValues = useContext(UserContext);
 
   return (
-    <Styled isLightTheme={contextValues.isLightTheme}>
+    <Styled theme={contextValues.theme}>
       <Slide />
       <About />
       <Works />

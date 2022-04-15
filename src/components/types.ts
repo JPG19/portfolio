@@ -1,5 +1,5 @@
 export default interface StyledProps {
-  isLightTheme: boolean;
+  theme: string;
   lightBackgroundColor: string;
   lightColor: string;
   darkBackgroundColor: string;

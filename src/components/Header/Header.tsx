@@ -11,6 +11,8 @@ const Header: React.FC = ({}) => {
   const location = useLocation();
   const contextValues = useContext(UserContext);
 
+  const checked = contextValues.theme === "light" ? false : true;
+
   return (
     <Styled {...contextValues}>
       <div className="max-width-container">
@@ -44,8 +46,10 @@ const Header: React.FC = ({}) => {
 
         <label className="switch">
           <input
-            checked={!contextValues.isLightTheme}
-            onChange={() => contextValues.toggleDark()}
+            checked={checked}
+            onChange={() =>
+              contextValues.toggleDark(checked ? "light" : "dark")
+            }
             type="checkbox"
           />
           <span className="slider round"></span>

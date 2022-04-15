@@ -4,8 +4,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Main, Header, ATP, Contact } from "./components";
 
 interface IThemeContext {
-  isLightTheme: boolean;
-  toggleDark: () => void;
+  theme: string;
+  toggleDark: (param: string) => void;
   lightBackgroundColor: string;
   lightColor: string;
   darkBackgroundColor: string;
@@ -13,7 +13,7 @@ interface IThemeContext {
 }
 
 const defaultState = {
-  isLightTheme: true,
+  theme: "light",
   toggleDark: () => {},
   lightBackgroundColor: "hsl(0, 0%, 100%)",
   lightColor: "hsl(0, 0%, 10%)",
@@ -24,18 +24,25 @@ const defaultState = {
 export const UserContext = React.createContext<IThemeContext>(defaultState);
 
 const App = () => {
-  const [lightTheme, setLightTheme] = React.useState<boolean>(
-    defaultState.isLightTheme
+  const [theme, setTheme] = React.useState<string>(
+    localStorage.getItem("theme") || defaultState.theme
   );
 
-  const toggleDark = () => {
-    setLightTheme(!lightTheme);
+  const toggleDark = (themeProp: string) => {
+    setTheme(themeProp);
+    localStorage.setItem("theme", themeProp);
   };
+
+  React.useEffect(() => {
+    if (!localStorage.getItem("theme")) {
+      localStorage.setItem("theme", theme);
+    }
+  });
 
   return (
     <UserContext.Provider
       value={{
-        isLightTheme: lightTheme,
+        theme,
         toggleDark,
         lightBackgroundColor: defaultState.lightBackgroundColor,
         lightColor: defaultState.lightColor,

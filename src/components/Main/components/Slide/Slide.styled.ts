@@ -4,7 +4,7 @@ import StyledProps from "../../../types";
 
 export default styled.div<StyledProps>`
   background-color: ${(props) =>
-    props.isLightTheme
+    props.theme === "light"
       ? props.lightBackgroundColor
       : props.darkBackgroundColor};
   padding: 4rem 0;
@@ -15,7 +15,7 @@ export default styled.div<StyledProps>`
       max-width: 90%;
       margin: auto;
       color: ${(props) =>
-        props.isLightTheme ? props.lightColor : props.darkColor};
+        props.theme === "light" ? props.lightColor : props.darkColor};
     }
 
     .jp-picture {

@@ -6,9 +6,9 @@ export default styled.div<StyledProps>`
   width: 100%;
   min-height: 500px;
   background-color: ${(props) =>
-    props.isLightTheme ? "hsl(227, 82%, 36%)" : "hsl(268, 100%, 10%)"};
+    props.theme === "light" ? "hsl(227, 82%, 36%)" : "hsl(268, 100%, 10%)"};
   color: ${(props) =>
-    props.isLightTheme ? "hsl(0, 0%, 95%)" : "hsl(0, 0%, 85%)"};
+    props.theme === "light" ? "hsl(0, 0%, 95%)" : "hsl(0, 0%, 85%)"};
   text-align: center;
   display: grid;
   padding: 4rem 0;
@@ -30,12 +30,12 @@ export default styled.div<StyledProps>`
     justify-content: center;
     flex-wrap: wrap;
     color: ${(props) =>
-      props.isLightTheme ? props.lightColor : props.darkColor};
+      props.theme === "light" ? props.lightColor : props.darkColor};
   }
 
   .container {
     background-color: ${(props) =>
-      props.isLightTheme ? "hsl(0, 0%, 95%)" : "hsl(0, 0%, 30%)"};
+      props.theme === "light" ? "hsl(0, 0%, 95%)" : "hsl(0, 0%, 30%)"};
     padding: 2rem 1rem;
     width: 550px;
     border-radius: 20px 0 0 20px;

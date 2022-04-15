@@ -4,11 +4,11 @@ import StyledProps from "../../../types";
 
 export default styled.div<StyledProps>`
   background-color: ${(props) =>
-    props.isLightTheme
+    props.theme === "light"
       ? props.lightBackgroundColor
       : props.darkBackgroundColor};
   color: ${(props) =>
-    props.isLightTheme ? props.lightColor : props.darkColor};
+    props.theme === "light" ? props.lightColor : props.darkColor};
 
   .motion-work {
     max-width: 1400px;

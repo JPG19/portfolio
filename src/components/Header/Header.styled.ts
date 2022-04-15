@@ -6,7 +6,7 @@ export default styled.header<StyledProps>`
   height: 50px;
   padding: 20px;
   background-color: ${(props) =>
-    props.isLightTheme
+    props.theme === "light"
       ? props.lightBackgroundColor
       : props.darkBackgroundColor};
   .max-width-container {
@@ -18,7 +18,7 @@ export default styled.header<StyledProps>`
 
     a {
       color: ${(props) =>
-        props.isLightTheme ? props.lightColor : props.darkColor};
+        props.theme === "light" ? props.lightColor : props.darkColor};
     }
 
     a:first-of-type {
@@ -27,7 +27,7 @@ export default styled.header<StyledProps>`
 
     a:visited {
       color: ${(props) =>
-        props.isLightTheme ? props.lightColor : props.darkColor};
+        props.theme === "light" ? props.lightColor : props.darkColor};
     }
 
     svg {
@@ -37,12 +37,12 @@ export default styled.header<StyledProps>`
 
     .linkedIn:hover path {
       fill: ${(props) =>
-        props.isLightTheme ? "hsl(210, 90%, 40%)" : "hsl(154, 45%, 63%)"};
+        props.theme === "light" ? "hsl(210, 90%, 40%)" : "hsl(154, 45%, 63%)"};
     }
 
     .github:hover path {
       fill: ${(props) =>
-        props.isLightTheme ? "hsl(0, 2%, 40%)" : "hsl(0, 0%, 100%)"};
+        props.theme === "light" ? "hsl(0, 2%, 40%)" : "hsl(0, 0%, 100%)"};
     }
   }
 
