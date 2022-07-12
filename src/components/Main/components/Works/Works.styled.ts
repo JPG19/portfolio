@@ -12,6 +12,7 @@ export default styled.div<StyledProps>`
 
   .motion-work {
     max-width: 1400px;
+    width: 90%;
     margin: auto;
     padding: 3rem 0;
   }
@@ -32,10 +33,6 @@ export default styled.div<StyledProps>`
     a {
       text-decoration: auto;
     }
-  }
-
-  @media screen and (max-width: 1420px) {
-    width: 90%;
   }
 
   @media screen and (max-width: 768px) {

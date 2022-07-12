@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import fccLogo from "../../../../assets/fccLogo.png";
 import salesforceAppBuilder from "../../../../assets/appBuilder.png";
 import loneball from "../../../../assets/loneball5.jpg";
+import awsCertified from "../../../../assets/aws_ccp.png";
 
 import { UserContext } from "../../../../App";
 import Work from "./Work/Work";
@@ -11,7 +12,7 @@ import Styled from "./Works.styled";
 
 const Works = () => {
   const contextValues = useContext(UserContext);
-  const responsiveDesigns = [
+  const certifications = [
     {
       imageUrl: fccLogo,
       link: "https://www.freecodecamp.org/certification/fcc5eb78346-2dcc-4c52-894b-415cda26dea0/responsive-web-design",
@@ -26,6 +27,11 @@ const Works = () => {
       imageUrl: salesforceAppBuilder,
       link: "https://trailhead.salesforce.com/en/credentials/certification-detail-print/?searchString=6Vi5EHu5cXVKa6JdhIddLXwHwl/A1QwdVrBo7titffNqxgvMlJncKcV+RXCR7VOf",
       text: "Salesforce Certified Platform App Builder",
+    },
+    {
+      imageUrl: awsCertified,
+      link: "https://www.credly.com/badges/129309e9-3000-44bd-825c-9cd374621fa1/public_url",
+      text: "AWS Certified Cloud Practitioner",
     },
   ];
 
@@ -54,12 +60,12 @@ const Works = () => {
         <h3 className="certification">Certifications</h3>
 
         <div className="projects">
-          {responsiveDesigns.map((work) => (
+          {certifications.map((certification) => (
             <Work
-              key={work.text}
-              backgroundImg={work.imageUrl}
-              link={work.link}
-              text={work.text}
+              key={certification.text}
+              backgroundImg={certification.imageUrl}
+              link={certification.link}
+              text={certification.text}
             />
           ))}
         </div>

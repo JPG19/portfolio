@@ -3,7 +3,6 @@ import styled from "styled-components";
 import StyledProps from "../types";
 
 export default styled.header<StyledProps>`
-  height: 50px;
   padding: 20px;
   background-color: ${(props) =>
     props.theme === "light"
@@ -12,6 +11,7 @@ export default styled.header<StyledProps>`
   .max-width-container {
     font-weight: 700;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     gap: 20px;
     text-decoration: auto;
