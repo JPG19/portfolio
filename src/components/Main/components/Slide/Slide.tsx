@@ -24,7 +24,7 @@ const Slide = () => {
         }}
       >
         <h1>Front-end Developer working with React</h1>
-        <img className="jp-picture" src="https://portfolio-images12.s3.amazonaws.com/jpDev.webp" alt="JP's picture" />
+        <img className="jp-picture" src="https://portfolio-images12.s3.amazonaws.com/jpDev.webp" alt="JP's pic" />
       </motion.div>
     </Styled>
   );
