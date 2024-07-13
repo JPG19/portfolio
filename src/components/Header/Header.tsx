@@ -7,7 +7,7 @@ import { faGithubSquare } from "@fortawesome/free-brands-svg-icons";
 import { UserContext } from "../../App";
 import Styled from "./Header.styled";
 
-const Header = ({}) => {
+const Header = () => {
   const location = useLocation();
   const contextValues = useContext(UserContext);
 

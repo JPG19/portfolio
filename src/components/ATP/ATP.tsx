@@ -17,6 +17,7 @@ interface TopProps {
 const ATP = () => {
   const [top10, setTop10] = useState<TopProps[]>([]);
   const [apiError, setApiError] = useState<string>("");
+  console.log("🚀 ~ ATP ~ apiError:", apiError)
   const { REACT_APP_RAPID_API_KEY } = process.env;
 
   useEffect(() => {
@@ -140,7 +141,7 @@ const ATP = () => {
         )
       )
       .catch((error) => setApiError(error));
-  }, []);
+  }, [REACT_APP_RAPID_API_KEY]);
 
   let loader = top10.length ? null : <div className="loader"></div>;
   return (
