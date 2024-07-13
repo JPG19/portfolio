@@ -1,7 +1,18 @@
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { lazy, Suspense } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { Main, Header, ATP, Contact } from "./components";
+import { Main, Header } from './components';
+
+const Contact = lazy(() =>
+  import('./components').then((module) => {
+    return { default: module.Contact };
+  })
+);
+const ATP = lazy(() =>
+  import('./components').then((module) => {
+    return { default: module.ATP };
+  })
+);
 
 interface IThemeContext {
   theme: string;
@@ -13,29 +24,29 @@ interface IThemeContext {
 }
 
 const defaultState = {
-  theme: "light",
+  theme: 'light',
   toggleDark: () => {},
-  lightBackgroundColor: "hsl(0, 0%, 100%)",
-  lightColor: "hsl(0, 0%, 10%)",
-  darkBackgroundColor: "hsl(0, 0%, 20%)",
-  darkColor: "hsl(0, 0%, 85%)",
+  lightBackgroundColor: 'hsl(0, 0%, 100%)',
+  lightColor: 'hsl(0, 0%, 10%)',
+  darkBackgroundColor: 'hsl(0, 0%, 20%)',
+  darkColor: 'hsl(0, 0%, 85%)',
 };
 
 export const UserContext = React.createContext<IThemeContext>(defaultState);
 
 const App = () => {
   const [theme, setTheme] = React.useState<string>(
-    localStorage.getItem("theme") || defaultState.theme
+    localStorage.getItem('theme') || defaultState.theme
   );
 
   const toggleDark = (themeProp: string) => {
     setTheme(themeProp);
-    localStorage.setItem("theme", themeProp);
+    localStorage.setItem('theme', themeProp);
   };
 
   React.useEffect(() => {
-    if (!localStorage.getItem("theme")) {
-      localStorage.setItem("theme", theme);
+    if (!localStorage.getItem('theme')) {
+      localStorage.setItem('theme', theme);
     }
   });
 
@@ -50,11 +61,11 @@ const App = () => {
         darkColor: defaultState.darkColor,
       }}
     >
-      <div className="app">
+      <div className='app'>
         <BrowserRouter>
           <Routes>
             <Route
-              path="/"
+              path='/'
               element={
                 <React.Fragment>
                   <Header />
@@ -62,8 +73,19 @@ const App = () => {
                 </React.Fragment>
               }
             />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/atp" element={<ATP />} />
+            <Route
+              path='/contact'
+              element={
+                <Suspense fallback='Loading...'>
+                  <Contact />
+                </Suspense>
+              }
+            />
+            <Route path="/atp" element={
+           <Suspense fallback='Loading...'>
+             <ATP />
+           </Suspense> 
+           } />
           </Routes>
         </BrowserRouter>
       </div>
@@ -71,6 +93,6 @@ const App = () => {
   );
 };
 
-App.displayName = "App";
+App.displayName = 'App';
 
 export default App;

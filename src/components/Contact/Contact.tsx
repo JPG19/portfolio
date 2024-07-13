@@ -6,7 +6,7 @@ import { UserContext } from "../../App";
 import Header from "../Header";
 import Styled from "./Contact.styled";
 
-const Contact: React.FC = () => {
+const Contact= () => {
   const [result, setResult] = React.useState<boolean>(false);
   const contextValues = useContext(UserContext);
 

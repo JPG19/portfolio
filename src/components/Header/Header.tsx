@@ -7,7 +7,7 @@ import { faGithubSquare } from "@fortawesome/free-brands-svg-icons";
 import { UserContext } from "../../App";
 import Styled from "./Header.styled";
 
-const Header: React.FC = ({}) => {
+const Header = ({}) => {
   const location = useLocation();
   const contextValues = useContext(UserContext);
 
@@ -44,8 +44,9 @@ const Header: React.FC = ({}) => {
 
         {location.pathname === "/" && <Link to="/contact">Contact</Link>}
 
-        <label className="switch">
+        <label htmlFor="themeToggle" className="switch">
           <input
+            id="themeToggle"
             checked={checked}
             onChange={() =>
               contextValues.toggleDark(checked ? "light" : "dark")

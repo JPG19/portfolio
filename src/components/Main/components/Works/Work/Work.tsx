@@ -14,7 +14,7 @@ const variants = {
   hidden: { opacity: 0 },
 };
 
-const Work: React.FC<Props> = ({ backgroundImg, text, link }) => {
+const Work = ({ backgroundImg, text, link }: Props) => {
   return (
     <Styled className="work-container" backgroundImg={backgroundImg}>
       <motion.div

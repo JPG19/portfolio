@@ -3,4 +3,4 @@ import Header from './Header';
 import Contact from './Contact';
 import ATP from './ATP';
 
-export {Main, ATP, Header, Contact};
+export {Main, Header, Contact, ATP};

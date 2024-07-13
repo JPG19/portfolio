@@ -22,7 +22,7 @@ body {
 
 
 .atp {
-  background-image: url(../src/assets/loneball5.jpg);
+  background-image: url("https://portfolio-images12.s3.amazonaws.com/loneball5.webp");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

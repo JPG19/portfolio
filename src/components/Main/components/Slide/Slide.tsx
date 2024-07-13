@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { motion } from "framer-motion";
 
 import { UserContext } from "../../../../App";
-import jpDev from "../../../../assets/jpDev.png";
 import Styled from "./Slide.styled";
 
 const Slide = () => {
@@ -25,7 +24,7 @@ const Slide = () => {
         }}
       >
         <h1>Front-end Developer working with React</h1>
-        <img className="jp-picture" src={jpDev} alt="JP's picture" />
+        <img className="jp-picture" src="https://portfolio-images12.s3.amazonaws.com/jpDev.webp" alt="JP's picture" />
       </motion.div>
     </Styled>
   );

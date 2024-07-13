@@ -1,8 +1,6 @@
 import { url } from "inspector";
 import styled from "styled-components";
 
-import loneball5 from "../../assets/loneball5.jpg";
-
 interface Props {
   className: string;
 }
