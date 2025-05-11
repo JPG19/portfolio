@@ -11,7 +11,7 @@ const About = () => {
   return (
     <Styled {...contextValues}>
       <div className="max-width-container">
-        <div className="name">Hi, i'm Juan Pablo</div>
+        <div className="name">Hi, i'm JPG</div>
 
         <div className="description">
           In 2018 i began my joruney as a software developer. Since then, i've

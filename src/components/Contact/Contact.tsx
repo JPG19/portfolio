@@ -53,7 +53,7 @@ const Contact= () => {
           }}
           onSubmit={sendEmail}
         >
-          <h2>Contact Juan Pablo</h2>
+          <h2>Contact JPG</h2>
           <label>Name: </label>
           <input type="text" name="fullName" required />
 
