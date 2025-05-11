@@ -1,17 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 
-import { UserContext } from "../../App";
 import Header from "../Header";
 
 const PrivacyPolicy = () => {
-  const [result, setResult] = React.useState<boolean>(false);
-  const contextValues = useContext(UserContext);
-
-  const variants = {
-    hidden: { opacity: 0, y: -50 },
-    visible: { opacity: 1, y: 0 },
-  };
-
   return (
     <React.Fragment>
       <Header />
